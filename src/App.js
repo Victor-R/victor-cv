@@ -1,28 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Container, Col, Row } from 'reactstrap';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
 import './App.css';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { dark } from '@material-ui/core/styles/createPalette';
+
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			teste: false
+		}
+	}
+
+	paperStyle = () => createMuiTheme({
+		palette: {
+			type: 'dark'
+		}
+	});
+
+	render() {
+		return (
+			<Container fluid>
+				<MuiThemeProvider theme={this.paperStyle()}>
+					<Paper className='mainBack col-10' dark >
+						<Row>
+							<Col md='2'>
+								<div style={{ textAlign: 'center' }}>
+									<Avatar alt="Remy Sharp" src="perfil.png" style={{ width: '250px', height: '250px', textAnchor: 'middle' }} />
+									<Typography variant='overline' style={{ textAnchor: 'middle' }}>Victor Henrique Ribeiro</Typography>
+								</div>
+							</Col>
+						</Row>
+					</Paper>
+				</MuiThemeProvider>
+			</Container>
+		);
+	}
 }
 
 export default App;
