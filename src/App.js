@@ -59,31 +59,38 @@ class App extends Component {
 
 	render() {
 		return (
-			<Container className='d-flex justify-content-center'>
+			<Container>
 				<MuiThemeProvider theme={this.paperStyle()}>
-					<Paper className='mainBack' >
-						<Row className="d-flex align-items-center">
-							<Col md='3' style={{ maxWidth: '100%' }}>
-								<Avatar src="perfil.png" style={{ width: '250px', height: '250px' }} />
-							</Col>
-							<Col>
-								<Row>
-									<MuiThemeProvider theme={this.typoCustomStyle()}>
-										<Typography variant='h3' color='primary' gutterBottom>Victor Henrique Ribeiro</Typography>
-									</MuiThemeProvider>
-								</Row>
-								<Row className='d-flex justify-content-center'>
-									<MuiThemeProvider theme={this.btnCustomStyles()}>
-										<Button variant='contained' color='primary' onClick={this.handleBtnShowResume}>show Resume</Button>
-									</MuiThemeProvider>
-								</Row>
-								{
-									this.state.showResume ? <Resume /> : ''
-								}
-								
-							</Col>
-						</Row>
-					</Paper>
+					<Row className='d-flex justify-content-center'>
+						<Paper className='mainBack' >
+							<Row className="d-flex align-items-center">
+								<Col md='3' style={{ maxWidth: '100%' }}>
+									<Avatar src="perfil.png" style={{ width: '250px', height: '250px' }} />
+								</Col>
+								<Col>
+									<Row>
+										<MuiThemeProvider theme={this.typoCustomStyle()}>
+											<Typography variant='h3' color='primary' gutterBottom>Victor Henrique Ribeiro</Typography>
+										</MuiThemeProvider>
+									</Row>
+									<Row className='d-flex justify-content-center'>
+										<MuiThemeProvider theme={this.btnCustomStyles()}>
+											<Button variant='contained' color='primary' onClick={this.handleBtnShowResume}>show Resume</Button>
+										</MuiThemeProvider>
+									</Row>
+
+
+								</Col>
+							</Row>
+						</Paper>
+					</Row>
+					<Row>
+						<Col>
+							{
+								this.state.showResume ? <Resume /> : ''
+							}
+						</Col>
+					</Row>
 				</MuiThemeProvider>
 			</Container>
 		);
