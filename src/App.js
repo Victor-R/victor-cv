@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Col, Row } from 'reactstrap';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
+import Grow from '@material-ui/core/Grow';
+import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown'
 import Resume from './Resume';
 import './App.css';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { createMuiTheme, MuiThemeProvider, Fab } from '@material-ui/core';
 
 
 class App extends Component {
@@ -61,38 +62,39 @@ class App extends Component {
 		return (
 			<Container>
 				<MuiThemeProvider theme={this.paperStyle()}>
-					<Row className='d-flex justify-content-center'>
-						<Paper className='mainBack' >
-							<Row className="d-flex align-items-center">
-								<Col md='3' style={{ maxWidth: '100%' }}>
-									<Avatar src="perfil.png" style={{ width: '250px', height: '250px' }} />
-								</Col>
-								<Col>
-									<Row>
-										<MuiThemeProvider theme={this.typoCustomStyle()}>
-											<Typography variant='h3' color='primary' gutterBottom>Victor Henrique Ribeiro</Typography>
-										</MuiThemeProvider>
-									</Row>
-									<Row className='d-flex justify-content-center'>
-										<MuiThemeProvider theme={this.btnCustomStyles()}>
-											<Button variant='contained' color='primary' onClick={this.handleBtnShowResume}>show Resume</Button>
-										</MuiThemeProvider>
-									</Row>
+					<Grow in={this.state.showResume} mountOnEnter unmountOnExit>
+						<Row>
+							<Col>
+								<Resume handleBtnShowResume={this.handleBtnShowResume} />
+							</Col>
+						</Row>
+					</Grow>
+					<Grow in={!this.state.showResume} mountOnEnter unmountOnExit>
+						<Row className='d-flex justify-content-center'>
+							<Paper className='mainBack' >
+								<Row className="d-flex align-items-center">
+									<Col md='3' style={{ maxWidth: '100%' }}>
+										<Avatar src="perfil.png" style={{ width: '250px', height: '250px' }} />
+									</Col>
+									<Col>
+										<Row>
+											<MuiThemeProvider theme={this.typoCustomStyle()}>
+												<Typography variant='h3' color='primary' gutterBottom>Victor Henrique Ribeiro</Typography>
+											</MuiThemeProvider>
+										</Row>
+										<Row className='d-flex justify-content-center'>
+											<MuiThemeProvider theme={this.btnCustomStyles()}>
+												<Fab variant='extended' color='primary' onClick={this.handleBtnShowResume}>show resume<KeyboardArrowDown/></Fab>
+											</MuiThemeProvider>
+										</Row>
+									</Col>
+								</Row>
+							</Paper>
+						</Row>
+					</Grow>
 
-
-								</Col>
-							</Row>
-						</Paper>
-					</Row>
-					<Row>
-						<Col>
-							{
-								this.state.showResume ? <Resume /> : ''
-							}
-						</Col>
-					</Row>
 				</MuiThemeProvider>
-			</Container>
+			</Container >
 		);
 	}
 }
