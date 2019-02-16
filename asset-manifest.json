@@ -1,13 +1,13 @@
 {
-  "main.css": "/victor-resume/static/css/main.09fe4911.chunk.css",
-  "main.js": "/victor-resume/static/js/main.774bc515.chunk.js",
-  "main.js.map": "/victor-resume/static/js/main.774bc515.chunk.js.map",
-  "static/js/1.5717ab01.chunk.js": "/victor-resume/static/js/1.5717ab01.chunk.js",
-  "static/js/1.5717ab01.chunk.js.map": "/victor-resume/static/js/1.5717ab01.chunk.js.map",
-  "runtime~main.js": "/victor-resume/static/js/runtime~main.77b0e037.js",
-  "runtime~main.js.map": "/victor-resume/static/js/runtime~main.77b0e037.js.map",
-  "static/css/main.09fe4911.chunk.css.map": "/victor-resume/static/css/main.09fe4911.chunk.css.map",
-  "index.html": "/victor-resume/index.html",
-  "precache-manifest.3a5bfb195a8ed81a320d533e9cb7c487.js": "/victor-resume/precache-manifest.3a5bfb195a8ed81a320d533e9cb7c487.js",
-  "service-worker.js": "/victor-resume/service-worker.js"
+  "main.css": "/victor-cv/static/css/main.4ebcda7b.chunk.css",
+  "main.js": "/victor-cv/static/js/main.3c662e90.chunk.js",
+  "main.js.map": "/victor-cv/static/js/main.3c662e90.chunk.js.map",
+  "static/js/1.6d03b9cc.chunk.js": "/victor-cv/static/js/1.6d03b9cc.chunk.js",
+  "static/js/1.6d03b9cc.chunk.js.map": "/victor-cv/static/js/1.6d03b9cc.chunk.js.map",
+  "runtime~main.js": "/victor-cv/static/js/runtime~main.3622acac.js",
+  "runtime~main.js.map": "/victor-cv/static/js/runtime~main.3622acac.js.map",
+  "static/css/main.4ebcda7b.chunk.css.map": "/victor-cv/static/css/main.4ebcda7b.chunk.css.map",
+  "index.html": "/victor-cv/index.html",
+  "precache-manifest.94e9a022a5149cb0b5e09974a760f1a9.js": "/victor-cv/precache-manifest.94e9a022a5149cb0b5e09974a760f1a9.js",
+  "service-worker.js": "/victor-cv/service-worker.js"
 }
