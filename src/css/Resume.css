@@ -1,0 +1,24 @@
+
+
+.customAvatar-div{
+    position: relative;
+    overflow: hidden;
+    font-size: 1.25rem;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.customAvatar-img {
+    object-fit: cover;
+}
+
+
+.sectionTitle {
+    background: linear-gradient(-45deg, #9C27B0, #3F51B5, #009688, #4CAF50);
+    -webkit-animation: Gradient 10s ease infinite;
+    -moz-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite;
+    border-radius: 10px;
+    background-size: 400% 400%;
+}

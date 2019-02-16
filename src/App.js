@@ -5,8 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
 import Grow from '@material-ui/core/Grow';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown'
-import Resume from './Resume';
-import './App.css';
+import Resume from './Components/Resume';
+import './css/App.css';
 import { createMuiTheme, MuiThemeProvider, Fab } from '@material-ui/core';
 
 
@@ -60,11 +60,11 @@ class App extends Component {
 
 	render() {
 		return (
-			<Container>
+			<Container fluid>
 				<MuiThemeProvider theme={this.paperStyle()}>
 					<Grow in={this.state.showResume} mountOnEnter unmountOnExit>
-						<Row>
-							<Col>
+						<Row className='d-flex justify-content-center'>
+							<Col md='8'>
 								<Resume handleBtnShowResume={this.handleBtnShowResume} />
 							</Col>
 						</Row>
@@ -92,7 +92,6 @@ class App extends Component {
 							</Paper>
 						</Row>
 					</Grow>
-
 				</MuiThemeProvider>
 			</Container >
 		);
