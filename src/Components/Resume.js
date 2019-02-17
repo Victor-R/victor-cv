@@ -7,8 +7,19 @@ import { Col, Row } from 'reactstrap';
 import '../css/Resume.css';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowUp from '@material-ui/icons/KeyboardArrowUp';
-import { createMuiTheme, MuiThemeProvider, Button } from '@material-ui/core';
+import { createMuiTheme, MuiThemeProvider, Button, Radio } from '@material-ui/core';
 
+function GenerateRadioInput(props) {
+    let items = [];
+    for (let i = 0; i < props.numberOfButtons; i++) {
+        items.push(props.children(i));
+    }
+    return (
+        <div style={{ width: `${props.percent}%`, overflow: 'hidden' }} className='d-inline-flex justify-content-between sectionTitle'>
+            {items}
+        </div>
+    );
+}
 
 class Resume extends Component {
     constructor(props) {
@@ -35,19 +46,53 @@ class Resume extends Component {
             <div>
                 <Row>
                     <Col>
-                        <Typography variant='h3' color='primary' className='sectionTitle' gutterBottom style={{ textAlign: 'center', fontFamily: `Lobster`}}>{title}</Typography>
+                        <Typography variant='h3' color='primary' className='sectionTitle' gutterBottom style={{ textAlign: 'center', fontFamily: `Lobster` }}>{title}</Typography>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <Typography variant='body1' color='primary' gutterBottom style={{ textAlign: 'center' }}>
-                        {content}
+                        <Typography variant='body1' color='primary' gutterBottom style={{ textAlign: 'center', fontFamily: `ABeeZee` }}>
+                            {content}
                         </Typography>
                     </Col>
                 </Row>
             </div>
         )
     }
+
+    createSkillBar = (percent, skillName) => {
+        let radioButtons = Math.ceil(percent / 10);
+        return (
+            <div style={{width: '100%'}}>
+                <MuiThemeProvider theme={this.typoCustomStyle()}>
+                    <Typography variant='overline' color='primary'>{skillName}:</Typography>
+                </MuiThemeProvider>
+                <div style={{width: '100%', border: 'solid 1px #6b6969', borderRadius: '10px', display: 'inline-flex' }}>
+                    <GenerateRadioInput numberOfButtons={radioButtons} percent={percent}>
+                        {(index) => <Radio color='primary' disabled checked key={index} />}
+                    </GenerateRadioInput>
+                </div>
+            </div>
+        );
+    }
+
+    radioCustomStyle = () => createMuiTheme({
+        typography: {
+            useNextVariants: true,                  // tipografia padrão do materialUI            
+        },
+        palette: {
+            primary: {
+                main: '#000'                     // Altera paleta de cores dos botões
+            }
+        },
+        overrides: {
+            MuiIconButton: {
+                root: {
+                    padding: '0px'
+                }
+            }
+        }
+    });
 
 
     render() {
@@ -70,9 +115,22 @@ class Resume extends Component {
                         <Row className='d-flex justify-content-center'>
                             <Col md='9'>
                                 <MuiThemeProvider theme={this.typoCustomStyle()}>
-                                    <Typography variant='subtitle' color='primary' style={{ textAlign: 'center' }}>Victor Henrique Ribeiro</Typography>
+                                    <Typography variant='subtitle1' color='primary' style={{ textAlign: 'center' }}>Victor Henrique Ribeiro</Typography>
                                     <Typography variant='subtitle2' color='primary' gutterBottom style={{ textAlign: 'center' }}>Analista de Sistemas</Typography>
                                 </MuiThemeProvider>
+                            </Col>
+                        </Row>
+                        <Row className='d-flex justify-content-center'>
+                            <Col md='9'>
+                                <div style={{ width: '100%' }} >
+                                    <MuiThemeProvider theme={this.radioCustomStyle()}>
+                                        {this.createSkillBar(90, 'Javascript')}
+                                        {this.createSkillBar(59, 'Teste2')}
+                                        {this.createSkillBar(33, 'Teste3')}
+                                        {this.createSkillBar(20, 'Teste4')}
+                                        {this.createSkillBar(16, 'Teste5')}
+                                    </MuiThemeProvider>
+                                </div>
                             </Col>
                         </Row>
                     </Col>
