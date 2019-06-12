@@ -96,6 +96,16 @@ class Resume extends Component {
 
 
     render() {
+
+        const skillList = [
+            { name: 'Github', value: 90 },
+            { name: 'Inglês', value: 90 },
+            { name: 'React+Redux', value: 60 },
+            { name: 'Javascript', value: 60 },
+            { name: 'SQL & PL/SQL', value: 80 },
+            { name: 'Express', value: 60 },
+        ]
+
         return (
             <Paper style={{ marginTop: '3em' }}>
                 <Row className='d-flex justify-content-center' style={{ marginBottom: '1em' }}>
@@ -124,15 +134,11 @@ class Resume extends Component {
                             <Col lg='9'>
                                 <div style={{ width: '100%' }} >
                                     <MuiThemeProvider theme={this.radioCustomStyle()}>
-                                        {this.createSkillBar(90, 'Github')}
-                                        {this.createSkillBar(85, 'Inglês')}
-                                        {this.createSkillBar(80, 'React/Redux')}
-                                        {this.createSkillBar(80, 'Javascript')}                                        
-                                        {this.createSkillBar(80, 'Front-end')}
-                                        {this.createSkillBar(80, 'SQL & PL/SQL')}
-                                        {this.createSkillBar(50, 'Nodejs (back-end)')}
-                                        {this.createSkillBar(30, 'Java')}
-                                        {this.createSkillBar(30, 'C#')}
+                                        {
+                                            skillList
+                                                .sort((a, b) => (a.value < b.value ? 1 : -1))
+                                                .map(skill => this.createSkillBar(skill.value, skill.name))
+                                        }
                                     </MuiThemeProvider>
                                 </div>
                             </Col>

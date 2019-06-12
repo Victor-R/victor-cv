@@ -2,3 +2,10 @@
   margin-top: 2em;  
   padding: 3em;
 }
+
+
+@media screen and (max-width: 991px) {
+  .mobile-paper{
+    padding: 0;
+  }
+}

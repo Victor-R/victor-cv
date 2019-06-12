@@ -25,7 +25,7 @@ class App extends Component {
 		typography: {
 			useNextVariants: true,                  // tipografia padrão do materialUI            
 		},
-		palette: {			
+		palette: {
 			type: this.state.darkMode ? 'dark' : 'light'
 		}
 	});
@@ -83,14 +83,14 @@ class App extends Component {
 			<Container fluid>
 				<div className='d-inline-flex align-items-center'>
 					<MuiThemeProvider theme={this.switchCustomStyle()}>
-						{this.state.darkMode ? <FaEmpire size={35} color='#383535'/> : <FaJediOrder color='#fff' size={35} />}
+						{this.state.darkMode ? <FaEmpire size={35} color='#383535' /> : <FaJediOrder color='#fff' size={35} />}
 						<Switch color='primary' checked={this.state.darkMode} onChange={() => this.setState({ darkMode: !this.state.darkMode })} />
 					</MuiThemeProvider>
 				</div>
 				<MuiThemeProvider theme={this.paperStyle()}>
 					<Grow in={this.state.showResume} mountOnEnter unmountOnExit>
 						<Row className='d-flex justify-content-center'>
-							<Col md='10'>
+							<Col lg='10' className='mobile-paper'>
 								<Resume handleBtnShowResume={this.handleBtnShowResume} darkMode={this.state.darkMode} />
 							</Col>
 						</Row>
@@ -99,13 +99,13 @@ class App extends Component {
 						<Row className='d-flex justify-content-center'>
 							<Paper className='mainBack'>
 								<Row className="d-flex align-items-center">
-									<Col md='3' style={{ maxWidth: '100%' }}>
+									<Col md='3' className='d-flex justify-content-center' style={{ maxWidth: '100%' }}>
 										<Avatar src="perfil.png" style={{ width: '250px', height: '250px' }} />
 									</Col>
 									<Col>
-										<Row>
+										<Row className='justify-content-center'>
 											<MuiThemeProvider theme={this.typoCustomStyle()}>
-												<Typography variant='h3' color='textPrimary' gutterBottom>Victor Henrique Ribeiro</Typography>
+												<Typography variant='h3' color='textPrimary' style={{ textAlign: 'center' }} gutterBottom>Victor Henrique Ribeiro</Typography>
 											</MuiThemeProvider>
 										</Row>
 										<Row className='d-flex justify-content-center'>
