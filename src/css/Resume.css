@@ -7,8 +7,19 @@
     border-radius: 50%;
 }
 
+.project-list {
+    overflow-y: auto;
+    max-height: 250px;
+    margin-top: 2em!important;    
+}
+
 .customAvatar-img {
     object-fit: cover;
+}
+
+.main-Resume {
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 

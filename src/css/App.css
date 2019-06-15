@@ -1,6 +1,13 @@
 .mainBack {  
-  margin-top: 2em;  
+  margin-top: 1em;
+  margin-bottom: 2em;
   padding: 3em;
+}
+
+.switch-container {
+  justify-content: space-around;
+  display: flex;
+  margin-top: .5em;
 }
 
 
