@@ -132,6 +132,13 @@ class Resume extends Component {
 
         const projectList = [
             {
+                name: this.props.language === 'pt-br' ? 'Victor-cv (Este Site)' : 'Victor-cv (This Site!)',
+                description: this.props.language === 'pt-br' ?
+                    'Uma página para apresentar meu trabalho e falar um pouco sobre mim, sendo utilizada como Curriculo.' :
+                    'A website to show my work and speak about me, using it as a Resume.',
+                url: 'https://github.com/Victor-R/victor-cv'
+            },
+            {
                 name: 'OmniStackWeek',
                 description: this.props.language === 'pt-br' ?
                     'Um projeto completo unindo React, React Native e Express. Que imita o Instagram com atualizações em tempo real.' :
